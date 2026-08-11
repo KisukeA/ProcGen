@@ -123,6 +123,72 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &281993733
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 281993735}
+  - component: {fileID: 281993734}
+  m_Layer: 0
+  m_Name: BiomeManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &281993734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 281993733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cc2f8b74b20b63498c352d9054863f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  biomeDefinitions:
+  - biome: {fileID: 11400000, guid: 1bb1506b18c84f24ab7588569607cecf, type: 2}
+    minTemperature: 0.66
+    maxTemperature: 0.85
+    minHumidity: 0.2
+    maxHumidity: 0.35
+  - biome: {fileID: 11400000, guid: ed7e3a78953142b4a93887ce4475fa46, type: 2}
+    minTemperature: 0.04
+    maxTemperature: 0.55
+    minHumidity: 0.6
+    maxHumidity: 0.75
+  - biome: {fileID: 11400000, guid: 714aaea2650eef84a8b1d43194c13891, type: 2}
+    minTemperature: 0.24
+    maxTemperature: 0.57
+    minHumidity: 0.3
+    maxHumidity: 0.8
+  climateSettings:
+    temperatureScale: 0.002
+    temperatureOffset: 500
+    humidityScale: 0.002
+    humidityOffset: 1500
+  biomeBlendRange: 0.1
+--- !u!4 &281993735
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 281993733}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 25.99736, y: -110.5663, z: 144.57951}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &354582751
 GameObject:
   m_ObjectHideFlags: 0
@@ -168,82 +234,83 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chunkPrefab: {fileID: 1034055611362809483, guid: 0057573f5041cd448a4ff093fb3b2d57, type: 3}
-  WorldChunkSize: 10
+  WorldChunkSize: 30
   noiseSettings:
-    scale: 0.25
-    octaves: 1
-    offset: 0
+    scale: 0.22
+    octaves: 3
+    offset: 26
     lacunarity: 2
     persistence: 0.5
-    amplitude: 50
+    amplitude: 60
     baseLevel: 0
   blockTypeAssets:
   - name: Stone
     isSolid: 1
     mapKey: 1
-    frontTexture: {x: 0, y: 3}
-    rightTexture: {x: 0, y: 3}
-    backTexture: {x: 0, y: 3}
-    leftTexture: {x: 0, y: 3}
-    topTexture: {x: 0, y: 3}
-    bottomTexture: {x: 0, y: 3}
+    frontTexture: 12
+    rightTexture: 12
+    backTexture: 12
+    leftTexture: 12
+    topTexture: 12
+    bottomTexture: 12
   - name: Grass
     isSolid: 1
     mapKey: 0
-    frontTexture: {x: 2, y: 3}
-    rightTexture: {x: 2, y: 3}
-    backTexture: {x: 2, y: 3}
-    leftTexture: {x: 2, y: 3}
-    topTexture: {x: 3, y: 2}
-    bottomTexture: {x: 1, y: 3}
+    frontTexture: 14
+    rightTexture: 14
+    backTexture: 14
+    leftTexture: 14
+    topTexture: 11
+    bottomTexture: 13
   - name: Dirt
     isSolid: 1
     mapKey: 2
-    frontTexture: {x: 1, y: 3}
-    rightTexture: {x: 1, y: 3}
-    backTexture: {x: 1, y: 3}
-    leftTexture: {x: 1, y: 3}
-    topTexture: {x: 1, y: 3}
-    bottomTexture: {x: 1, y: 3}
+    frontTexture: 13
+    rightTexture: 13
+    backTexture: 13
+    leftTexture: 13
+    topTexture: 13
+    bottomTexture: 13
   - name: Furnace
     isSolid: 1
     mapKey: 5
-    frontTexture: {x: 0, y: 0}
-    rightTexture: {x: 1, y: 0}
-    backTexture: {x: 1, y: 0}
-    leftTexture: {x: 1, y: 0}
-    topTexture: {x: 3, y: 0}
-    bottomTexture: {x: 3, y: 0}
+    frontTexture: 0
+    rightTexture: 1
+    backTexture: 1
+    leftTexture: 1
+    topTexture: 3
+    bottomTexture: 3
   - name: Sand
     isSolid: 1
     mapKey: 6
-    frontTexture: {x: 2, y: 1}
-    rightTexture: {x: 2, y: 1}
-    backTexture: {x: 2, y: 1}
-    leftTexture: {x: 2, y: 1}
-    topTexture: {x: 2, y: 1}
-    bottomTexture: {x: 2, y: 1}
+    frontTexture: 6
+    rightTexture: 6
+    backTexture: 6
+    leftTexture: 6
+    topTexture: 6
+    bottomTexture: 6
   - name: Bedrock
     isSolid: 1
     mapKey: 7
-    frontTexture: {x: 1, y: 1}
-    rightTexture: {x: 1, y: 1}
-    backTexture: {x: 1, y: 1}
-    leftTexture: {x: 1, y: 1}
-    topTexture: {x: 1, y: 1}
-    bottomTexture: {x: 1, y: 1}
+    frontTexture: 5
+    rightTexture: 5
+    backTexture: 5
+    leftTexture: 5
+    topTexture: 5
+    bottomTexture: 5
   - name: Air
     isSolid: 0
     mapKey: 3
-    frontTexture: {x: 1, y: 1}
-    rightTexture: {x: 1, y: 1}
-    backTexture: {x: 1, y: 1}
-    leftTexture: {x: 1, y: 1}
-    topTexture: {x: 1, y: 1}
-    bottomTexture: {x: 1, y: 1}
+    frontTexture: 0
+    rightTexture: 0
+    backTexture: 0
+    leftTexture: 0
+    topTexture: 0
+    bottomTexture: 0
   RenderChunkDistance: 5
   player: {fileID: 963194228}
-  seed: 0
+  biomeManager: {fileID: 281993734}
+  seed: 30
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0

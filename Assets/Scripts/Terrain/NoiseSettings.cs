@@ -10,6 +10,6 @@ public class NoiseSettings
     [Range(0f, 1f)] public float persistence = 0.5f;
     // public AnimationCurve heightCurve;
 
-    public float amplitude = 18f;
+    public float amplitude = 50f;
     public int baseLevel = 0;
 }
