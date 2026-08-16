@@ -73,7 +73,6 @@ public class World : MonoBehaviour
             currentPlayerChunk = newChunk;
             // UpdateVisibleChunks(currentPlayerChunk);
             GenerateWorld();
-
         }
     }
 
@@ -151,7 +150,7 @@ public class World : MonoBehaviour
         GameObject chunkObj = Instantiate(chunkPrefab, pos, Quaternion.identity, transform);
         ChunkRenderer cr = chunkObj.GetComponent<ChunkRenderer>();
 
-        cr.Initialize(chunks[coord], this);
+        cr.Initialize(chunks[coord], this, chunkObj);
         cr.GenerateChunk();
 
         renderers.Add(coord, cr);
@@ -210,7 +209,6 @@ public class World : MonoBehaviour
         else{
             return false;
         }
-
     }
 
     bool isChunkInWorld(ChunkCoord coord){

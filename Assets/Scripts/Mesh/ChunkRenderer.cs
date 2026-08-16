@@ -7,6 +7,7 @@ public class ChunkRenderer : MonoBehaviour
 {
     private Chunk chunk;
     private World world;
+    private GameObject chunkObj;
 
     List<Vector3> vertices = new List<Vector3>();
     List<Vector2> uvs = new List<Vector2>();
@@ -33,10 +34,11 @@ public class ChunkRenderer : MonoBehaviour
         // mc.sharedMesh = mesh;
     }
 
-    public void Initialize(Chunk newChunk, World newWorld)
+    public void Initialize(Chunk newChunk, World newWorld, GameObject newChunkObj)
     {
         this.chunk = newChunk;
         this.world = newWorld;
+        this.chunkObj = newChunkObj;
         worldPosition = transform.position;
     }
 
@@ -78,7 +80,10 @@ public class ChunkRenderer : MonoBehaviour
 
         mesh.RecalculateNormals();
 
-        GetComponent<MeshFilter>().mesh = mesh;
+        MeshFilter mf = GetComponent<MeshFilter>();
+        mf.mesh = mesh;
+        MeshCollider mc = chunkObj.AddComponent<MeshCollider>();
+        mc.sharedMesh = mf.mesh;
     }
 
     void CreateBlock(int x, int y, int z)

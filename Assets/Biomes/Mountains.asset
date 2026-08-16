@@ -16,5 +16,5 @@ MonoBehaviour:
   baseHeight: 60
   amplitude: 50
   scale: 0.33
-  surfaceBlock: 0
+  surfaceBlock: 5
   subsurfaceBlock: 1

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   biomeName: Desert
   baseHeight: 30
-  amplitude: 35
-  scale: 0.2
+  amplitude: 22
+  scale: 0.1
   surfaceBlock: 6
   subsurfaceBlock: 6
